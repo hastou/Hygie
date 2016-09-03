@@ -13,9 +13,6 @@ class Route {
 class RouteManager {
     constructor() {
         this.routes = []
-
-        this.executeRouteController = this.executeRouteController.bind(this);
-
     }
 
     addRoute(url = '/', name = '', controller) {
