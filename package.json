@@ -1,0 +1,11 @@
+{
+  "name": "Hygie",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bin/server.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "Quentin Solard",
+  "license": "ISC"
+}
