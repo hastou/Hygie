@@ -1,7 +1,7 @@
-const server = require('./bin/server.js');
+const server = require('./bin/server');
 const routeManager = require('./bin/routemanager');
+const Response = require('./bin/response');
 
 routeManager.addRoute('/', 'home', (req, res) => {
-    res.writeHead(200, {'Content-Type': 'text-plain'});
-    res.end('Hello world!');
+    new Response().send(res);
 });
