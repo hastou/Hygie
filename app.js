@@ -1,12 +1,15 @@
-const server = require('./bin/server');
-const routeManager = require('./bin/routemanager');
+const Server = require('./bin/server');
 const Response = require('./bin/response');
+const fs = require('fs');
 
-routeManager.addRoute('/', 'home', (req, res) => {
+const server = new Server();
+const conf = JSON.parse(fs.readFileSync("conf.json"));
+
+server.addRoute('/', 'home', (req, res) => {
     new Response.Simple().send(res);
 });
 
-routeManager.addRoute('/html', 'html', (req, res) => {
+server.addRoute('/html', 'html', (req, res) => {
     new Response.Html().send(res);
 });
 
