@@ -10,5 +10,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(conf['server']['port'], conf['server']['host'], () => {
-    console.log("Server running");
+    console.log(`Server running on ${conf['server']['host']}:${conf['server']['port']}`);
 });
