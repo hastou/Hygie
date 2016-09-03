@@ -1,4 +1,4 @@
-url = require('url');
+import url from 'url';
 
 class Route {
     constructor() {
@@ -15,7 +15,7 @@ class RouteManager {
     }
 
     addRoute(url = '/', name = '', controller) {
-        var newRoute = new Route();
+        let newRoute = new Route();
         newRoute.url = url;
         newRoute.controller = controller;
         newRoute.name = name;
@@ -23,7 +23,7 @@ class RouteManager {
     }
 
     executeRouteController(req, res) {
-        var routeUrl = url.parse(req.url).pathname;
+        let routeUrl = url.parse(req.url).pathname;
         this.routes.forEach((route) => {
             if (route.url == routeUrl) {
                 route.controller(req, res);
