@@ -1,5 +1,5 @@
 const http = require('http');
-const RouteManager = require('./bin/route_manager');
+const RouteManager = require('./route_manager');
 
 class Server extends RouteManager {
 
