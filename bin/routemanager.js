@@ -1,11 +1,12 @@
-import url from 'url';
+const url = require('url');
 
 class Route {
     constructor() {
         this.cache = true;
         this.url = '';
         this.name = '';
-        this.controller = () => {};
+        this.controller = () => {
+        };
     }
 }
 
