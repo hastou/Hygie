@@ -1,4 +1,4 @@
-const Server = require('./bin/server');
+const Server = require('./server');
 const Response = require('./bin/response');
 const fs = require('fs');
 
