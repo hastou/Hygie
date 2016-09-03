@@ -1,25 +1,20 @@
 const http = require('http');
 const RouteManager = require('./route_manager');
 
-class Server {
+class Server extends RouteManager {
 
     constructor() {
-        this.routeManager = new RouteManager();
+        super();
+
     }
 
     listen(port = 3000, host = "0.0.0.0", cb) {
-        const server = http.createServer((req, res) => {
-            this.onRequest(req, res);
-        });
+        const server = http.createServer(this.getCallback());
         server.listen(port, host, undefined, cb);
     }
 
-    onRequest(req, res) {
-        this.routeManager.executeRouteController(req, res);
-    }
-
-    addRoute(url = '/', name = '', controller) {
-        this.routeManager.addRoute(url, name, controller);
+    getCallback() {
+        return this.executeRouteController;
     }
 
 }

@@ -1,3 +1,5 @@
+
+
 class Response {
     constructor(mime_type = "text/plain", code = 200, content = 'default') {
         this.mime_type = mime_type;
@@ -12,11 +14,20 @@ class Response {
 }
 
 class HtmlResponse extends Response {
-    constructor(content = '<h1>default</h1>') {
-        super("text/html", 200, content);
+    constructor(code, content = '<h1>default</h1>') {
+        super("text/html", code, content);
     }
 }
 
-exports.Simple = Response;
-exports.Html = HtmlResponse;
+class JsonResponse extends Response {
+    constructor(code, content = '{"text": "default"}') {
+        super("application/json", code, content);
+    }
+}
+
+module.exports = Response;
+
+module.exports.Simple = Response;
+module.exports.Html = HtmlResponse;
+module.exports.Json = JsonResponse;
 
