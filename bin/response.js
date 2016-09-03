@@ -17,8 +17,6 @@ class HtmlResponse extends Response {
     }
 }
 
-module.exports = Response;
-
-module.exports.Simple = Response;
-module.exports.Html = HtmlResponse;
+exports.Simple = Response;
+exports.Html = HtmlResponse;
 
