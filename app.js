@@ -1,13 +1,13 @@
-const Server = require('./bin/server.js');
-const fs = require('fs');
+const server = require('./bin/server');
+const routeManager = require('./bin/routemanager');
+const Response = require('./bin/response');
 
-const conf = JSON.parse(fs.readFileSync("conf.json"));
+routeManager.addRoute('/', 'home', (req, res) => {
+    new Response.Simple().send(res);
+});
 
-let server = new Server();
-
-server.addRoute('/', 'home', (req, res) => {
-    res.writeHead(200, {'Content-Type': 'text-plain'});
-    res.end('Hello world!');
+routeManager.addRoute('/html', 'html', (req, res) => {
+    new Response.Html().send(res);
 });
 
 

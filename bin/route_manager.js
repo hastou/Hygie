@@ -5,7 +5,8 @@ class Route {
         this.cache = true;
         this.url = '';
         this.name = '';
-        this.controller = () => {};
+        this.controller = () => {
+        };
     }
 }
 
