@@ -15,4 +15,4 @@ server.addRoute('/html', 'html', (req, res) => {
 
 
 server.listen(conf.server.port, conf.server.host,
-    () => console.log(`Server lancé sur le port ${conf.server.port}`));
+    () => console.log(`Serveur lancé sur le port ${conf.server.port}`));

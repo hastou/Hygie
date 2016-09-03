@@ -1,8 +1,6 @@
 const http = require('http');
 const RouteManager = require('./route_manager');
 
-
-
 class Server extends RouteManager {
 
     constructor() {
