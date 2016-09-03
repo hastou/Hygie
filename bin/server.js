@@ -1,13 +1,22 @@
 const http = require('http');
-const fs = require('fs');
-const routeManager = require('./routemanager');
+const RouteManager = require('./route_manager');
 
-const conf = JSON.parse(fs.readFileSync("conf.json"));
 
-const server = http.createServer((req, res) => {
-    routeManager.executeRouteController(req, res);
-});
 
-server.listen(conf['server']['port'], conf['server']['host'], () => {
-    console.log(`Server running on ${conf['server']['host']}:${conf['server']['port']}`);
-});
+class Server extends RouteManager {
+
+    constructor() {
+        super();
+
+    }
+
+    listen(port = 3000, host = "0.0.0.0", cb) {
+        const server = http.createServer(this.getCallback());
+        server.listen(port, host, undefined, cb);
+    }
+
+    getCallback() { return this.executeRouteController; }
+
+}
+
+module.exports = Server;

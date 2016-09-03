@@ -1,4 +1,4 @@
-import url from 'url';
+const url = require('url');
 
 class Route {
     constructor() {
@@ -32,5 +32,4 @@ class RouteManager {
     }
 }
 
-routeManager = new RouteManager();
-module.exports = routeManager;
+module.exports = RouteManager;
