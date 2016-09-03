@@ -23,7 +23,6 @@ class RouteManager {
     }
 
     executeRouteController(req, res) {
-        var buffer = 0;
         var routeUrl = url.parse(req.url).pathname;
         this.routes.forEach((route) => {
             if (route.url == routeUrl) {
