@@ -3,7 +3,7 @@
  */
 
 import koa from 'koa';
-import _ from 'koa-route';
+import koa_route from 'koa-route';
 
 
 
@@ -15,25 +15,16 @@ export default () => {
 
 
 class Application {
+
     constructor() {
         this.app = koa();
     }
 
-    use() {
-
-    }
-
-    get(route, cb) {
-        _.get(route, cb);
-    }
-
-    post(route, cb) {
-        _.post(route, cb);
-    }
-
-    listen(port = 3000) {
-        this.app.listen(port);
-    }
+    get koa() { return koa; }
+    use(cb) { this.app.use(cb); }
+    get(route, cb) { koa_route.get(route, cb); }
+    post(route, cb) { koa_route.post(route, cb); }
+    listen(port = 3000) { this.app.listen(port); }
 
 }
 
