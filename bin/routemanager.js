@@ -1,9 +1,11 @@
+url = require('url');
+
 class Route {
     constructor() {
         this.cache = true;
         this.url = '';
-        this.content = '';
         this.name = '';
+        this.controller = () => {};
     }
 }
 
@@ -12,23 +14,24 @@ class RouteManager {
         this.routes = []
     }
 
-    addRoute(url = '/', content = '', name = '') {
+    addRoute(url = '/', name = '', controller) {
         var newRoute = new Route();
         newRoute.url = url;
-        newRoute.content = content;
+        newRoute.controller = controller;
         newRoute.name = name;
         this.routes.push(newRoute);
     }
 
-    getContentForUrl(url) {
+    executeRouteController(req, res) {
         var buffer = 0;
+        var routeUrl = url.parse(req.url).pathname;
         this.routes.forEach((route) => {
-            if (route.url == url) {
-                buffer = route.content;
+            if (route.url == routeUrl) {
+                route.controller(req, res);
             }
         });
-        return buffer;
     }
 }
 
-module.exports = new RouteManager();
+routeManager = new RouteManager();
+module.exports = routeManager;
